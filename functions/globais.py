@@ -8,3 +8,6 @@ largura = 12
 
 # Caminho da gravação dos blocos
 caminho = os.getcwd() + "/logs/docs/"
+
+# Separador de anotacoes
+separador = "$%\|@"

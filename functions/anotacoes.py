@@ -36,8 +36,9 @@ def nova():
                 return
 
         anotacao += temp.capitalize()
+
         if coluna != len(cl) - 1:
-            anotacao += ","
+            anotacao += gb.separador
 
     doc.close()
     gerar(bloco,anotacao)

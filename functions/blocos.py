@@ -5,7 +5,7 @@ import functions.globais as gb
 # Parametro: numero -> index da lista do bloco ou das anotacoes / antc -> string da anotacao ou dos nomes dos blocos
 def separar(numero, antc: str):
     ln = str(numero) + ". " if numero != 0 else "   "
-    for i in antc.split(","):
+    for i in antc.split(gb.separador):
         ln += i.strip() + ((gb.largura - len(i.strip())) * " ")
     return ln
 
@@ -76,7 +76,7 @@ def gerar_bloco():
     for cl in range(len(col)):
         doc.write(col[cl])
         if cl < len(col) - 1:
-            doc.write(',')
+            doc.write(gb.separador)
     doc.write("\n")
     doc.close()
     blocos.write(nome + "\n")
