@@ -1,4 +1,4 @@
-import globais as gb
+import functions.globais as gb
 
 # Formata o bloco para a apresentacao na tela
 # Parametro: numero -> index da lista do bloco ou das anotacoes / antc -> string da anotacao ou dos nomes dos blocos
@@ -12,7 +12,7 @@ def separar(numero, antc: str):
 # Parametro: nome -> nome do bloco em especifico
 def visualizar(nome: str = None):
     try:
-        doc = open(nome, 'r')
+        doc = open(gb.caminho + nome, 'r')
         anotacoes = doc.readlines()
         print(separar(0, anotacoes[0]))
         for i in range(1, len(anotacoes)):
@@ -22,7 +22,7 @@ def visualizar(nome: str = None):
     except:
         print("\n     --- Blocos de notas ---     ")
         try:
-            doc = open(gb.nomeDosBlocos, 'r')
+            doc = open(gb.caminho + gb.nomeDosBlocos, 'r')
             blocos = doc.readlines()
             for i in range(len(blocos)):
                 print(f"{i + 1}. {blocos[i][:-1]}")
@@ -37,7 +37,7 @@ def titulo():
     while True:
         nome = str(input("Titulo: "))
         try:
-            doc = open(nome, 'x')
+            doc = open(gb.caminho + nome, 'x')
             doc.close()
             return nome
         except:
@@ -59,8 +59,8 @@ def colunas():
 # Gera o bloco
 # Parametros: nome -> titulo do bloco / colunas -> colunas do bloco
 def gerar_bloco(nome: str, colunas: list()):
-    doc = open(nome, 'w')
-    blocos = open(gb.nomeDosBlocos, 'a')
+    doc = open(gb.caminho + nome, 'w')
+    blocos = open(gb.caminho + gb.nomeDosBlocos, 'a')
     for col in range(len(colunas)):
         doc.write(colunas[col])
         if col < len(colunas) - 1:

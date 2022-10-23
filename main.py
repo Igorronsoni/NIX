@@ -1,5 +1,5 @@
-import blocos as bl
-import anotacoes as at
+import functions.blocos as bl
+import functions.anotacoes as at
 
 def menu_main():
     print("\n          --- Menu ---          \n1. Novo bloco\n2. Visualizar blocos\n3. Nova anotacao\n4. Visualizar anotacoes\n")
@@ -16,9 +16,7 @@ def selec(opcao):
             at.nova()
             return 1
         case 4:
-            notas = bl.visualizar()
-            nt = int(input("Digite o indice de um bloco de notas: "))
-            bl.visualizar(notas[nt -1][:-1])
+            at.visualizar()
             return 1
         case _:
             return 0
