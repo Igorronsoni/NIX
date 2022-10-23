@@ -31,7 +31,7 @@ def nova():
                 doc.close()
                 return
 
-        anotacao += temp
+        anotacao += temp.capitalize()
         if coluna != len(cl) - 1:
             anotacao += ","
 

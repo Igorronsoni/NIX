@@ -44,9 +44,9 @@ def titulo():
         if not os.path.exists("logs/docs"):
             os.mkdir("logs/docs")
         try:
-            doc = open(gb.caminho + nome, 'x')
+            doc = open(gb.caminho + nome.capitalize(), 'x')
             doc.close()
-            return nome
+            return nome.capitalize()
         except:
             print("Ja existe um bloco com este nome. Tente outro nome.")
 
