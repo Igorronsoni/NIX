@@ -12,7 +12,11 @@ def gerar(bloco, anotacao):
 # Parametros: - 
 def nova():
     notas = bl.visualizar()
-    nt = int(input("Digite o indice de um bloco de notas: "))
+    try:
+        nt = int(input("Digite o indice de um bloco de notas: "))
+    except:
+        print("\nProcesso cancelado por erro na insercao do indice")
+        return
     bloco = notas[nt -1][:-1]
     doc = open(gb.caminho + bloco, 'r')
     cl = doc.readlines()[0].split(",")
@@ -42,6 +46,10 @@ def nova():
 def visualizar():
     notas = bl.visualizar()
     if notas is not None:
-        nt = int(input("Digite o indice de um bloco de notas: "))
+        try:
+            nt = int(input("Digite o indice de um bloco de notas: "))
+        except:
+            print("\nProcesso cancelado por erro na insercao do indice")
+            return
         bl.visualizar(notas[nt -1][:-1])
      
