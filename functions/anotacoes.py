@@ -26,7 +26,7 @@ def nova():
         temp = str(input(col + ": "))
         
         if "cancelar" in temp.lower():
-            if str(input("\nTem certeza que dejesa cancelar? (S/N): ")) == "S":
+            if str(input("\nTem certeza que dejesa cancelar? (S/N): ")).lower() == "s":
                 print("\nAnotacao CANCELADA com sucesso")
                 doc.close()
                 return

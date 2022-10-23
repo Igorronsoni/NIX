@@ -55,7 +55,7 @@ def titulo():
 def colunas():
     array_colunas = []
     op = 1
-    print("Digite 0 para cancelar")
+    print("Digite 0 para terminar")
     while op != "0":
         op = str(input("Digite o nome de uma coluna: "))
         if op == "0":
