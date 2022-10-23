@@ -7,7 +7,7 @@ def menu_main():
 def selec(opcao):
     match opcao:
         case 1:
-            bl.gerar_bloco(bl.titulo(), bl.colunas())
+            bl.gerar_bloco()
             return 1
         case 2:
             bl.visualizar()

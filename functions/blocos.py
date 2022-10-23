@@ -1,3 +1,4 @@
+import os
 import functions.globais as gb
 
 # Formata o bloco para a apresentacao na tela
@@ -38,8 +39,10 @@ def titulo():
         print("Para cancelar a criacao do bloco, digite a palavra 'cancelar'")
         nome = str(input("Titulo: "))
         if "cancelar" in nome.lower():
-            if str(input("Tem certeza que deseja cancelar a criacao do bloco? (S/N): ")) is "S":
+            if str(input("Tem certeza que deseja cancelar a criacao do bloco? (S/N): ")).lower() == "s":
                 return None
+        if not os.path.exists("logs/docs"):
+            os.mkdir("logs/docs")
         try:
             doc = open(gb.caminho + nome, 'x')
             doc.close()
@@ -62,15 +65,17 @@ def colunas():
 
 # Gera o bloco
 # Parametros: nome -> titulo do bloco / colunas -> colunas do bloco
-def gerar_bloco(nome: str, colunas: list()):
+def gerar_bloco():
+    nome = titulo()
     if nome is None:
         print("Cancelado com sucesso")
         return
+    col = colunas()
     doc = open(gb.caminho + nome, 'w')
     blocos = open(gb.caminho + gb.nomeDosBlocos, 'a')
-    for col in range(len(colunas)):
-        doc.write(colunas[col])
-        if col < len(colunas) - 1:
+    for cl in range(len(col)):
+        doc.write(col[cl])
+        if cl < len(col) - 1:
             doc.write(',')
     doc.write("\n")
     doc.close()
