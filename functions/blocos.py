@@ -38,7 +38,7 @@ def titulo():
     while True:
         print("Para cancelar a criacao do bloco, digite a palavra 'cancelar'")
         nome = str(input("Titulo: "))
-        if "cancelar" in nome.lower():
+        if "cancelar" in nome.lower() and len(nome) < 10:
             if str(input("Tem certeza que deseja cancelar a criacao do bloco? (S/N): ")).lower() == "s":
                 return None
         if not os.path.exists("logs/docs"):
