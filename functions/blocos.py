@@ -35,13 +35,17 @@ def visualizar(nome: str = None):
 # Parametros: -
 def titulo():
     while True:
+        print("Para cancelar a criacao do bloco, digite a palavra 'cancelar'")
         nome = str(input("Titulo: "))
+        if "cancelar" in nome.lower():
+            if str(input("Tem certeza que deseja cancelar a criacao do bloco? (S/N): ")) is "S":
+                return None
         try:
             doc = open(gb.caminho + nome, 'x')
             doc.close()
             return nome
         except:
-            print("Ja existe uma anotacao com este nome. Tente outro nome.")
+            print("Ja existe um bloco com este nome. Tente outro nome.")
 
 # Gera as colunas para o bloco em questao
 # Parametros: -
@@ -59,6 +63,9 @@ def colunas():
 # Gera o bloco
 # Parametros: nome -> titulo do bloco / colunas -> colunas do bloco
 def gerar_bloco(nome: str, colunas: list()):
+    if nome is None:
+        print("Cancelado com sucesso")
+        return
     doc = open(gb.caminho + nome, 'w')
     blocos = open(gb.caminho + gb.nomeDosBlocos, 'a')
     for col in range(len(colunas)):
