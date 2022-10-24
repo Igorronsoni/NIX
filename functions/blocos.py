@@ -42,7 +42,7 @@ def titulo():
         if "cancelar" in nome.lower() and len(nome) < 10:
             if str(input("Tem certeza que deseja cancelar a criacao do bloco? (S/N): ")).lower() == "s":
                 return None
-        if not os.path.exists("logs/docs"):
+        if not os.path.exists(gb.caminho):
             os.mkdir("logs/docs")
         try:
             doc = open(gb.caminho + nome.capitalize(), 'x')
@@ -82,3 +82,28 @@ def gerar_bloco():
     doc.close()
     blocos.write(nome + "\n")
     blocos.close()
+
+# Deleta um bloco de notas
+# Parametro: nome -> nome do bloco em especifico
+def deletar(nome: str):
+    confir = str(input(f"\nTem certeza que deseja deletar o bloco de notas '{nome[:-1]}'? (S/N): "))
+    if confir.lower() == "s":
+
+        if os.path.exists(gb.caminho + nome[:-1]):
+            os.remove(gb.caminho + nome[:-1])
+            doc = open(gb.caminho + gb.nomeDosBlocos, 'r')
+            arqs = doc.readlines()
+            doc.close()
+            with open(gb.caminho + gb.nomeDosBlocos, 'w') as file:
+                newDoc = list()
+                for line in arqs:
+                    if line != nome:
+                        newDoc.append(line)
+                file.writelines(newDoc)
+            print("\nBloco de notas apagado com SUCESSO")
+
+        else:
+            print("\nO bloco de notas selecionado nao existe")
+                
+    return 1
+    

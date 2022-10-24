@@ -1,8 +1,9 @@
+import functions.avancado as av 
 import functions.blocos as bl
 import functions.anotacoes as at
 
 def menu_main():
-    print("\n          --- Menu ---          \n1. Novo bloco\n2. Visualizar blocos\n3. Nova anotacao\n4. Visualizar anotacoes\n")
+    print("\n          --- Menu ---          \n1. Novo bloco\n2. Visualizar blocos\n3. Nova anotacao\n4. Visualizar anotacoes\n5. Opcoes avancadas\n")
 
 def selec(opcao):
     match opcao:
@@ -18,9 +19,15 @@ def selec(opcao):
         case 4:
             at.visualizar()
             return 1
+        case 5:
+            av.menu_avancado()
+            return 1
         case _:
             return 0
 
 while True:
     menu_main()
-    selec(int(input("Opcao: "))) or print("Tratar erros")
+    try:
+        selec(int(input("Opcao: ")))
+    except:
+        print("\nProcesso cancelado por erro na insercao do indice")
