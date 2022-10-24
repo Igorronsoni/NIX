@@ -15,6 +15,7 @@ def visualizar(nome: str = None):
     try:
         doc = open(gb.caminho + nome, 'r')
         anotacoes = doc.readlines()
+        print(f"\n     --- {nome} ---     ")
         print(separar(0, anotacoes[0]))
         for i in range(1, len(anotacoes)):
             print(separar(i, anotacoes[i]))
