@@ -12,7 +12,11 @@ def gerar(bloco, anotacao):
 # Parametros: - 
 def nova():
     notas = bl.visualizar()
-    nt = int(input("Digite o indice de um bloco de notas: "))
+    try:
+        nt = int(input("Digite o indice de um bloco de notas: "))
+    except:
+        print("\nProcesso cancelado por erro na insercao do indice")
+        return
     bloco = notas[nt -1][:-1]
     doc = open(gb.caminho + bloco, 'r')
     cl = doc.readlines()[0].split(",")
@@ -25,15 +29,16 @@ def nova():
             col = cl[coluna][:-1]
         temp = str(input(col + ": "))
         
-        if "cancelar" in temp.lower():
+        if "cancelar" in temp.lower() and len(temp) < 10:
             if str(input("\nTem certeza que dejesa cancelar? (S/N): ")).lower() == "s":
                 print("\nAnotacao CANCELADA com sucesso")
                 doc.close()
                 return
 
-        anotacao += temp
+        anotacao += temp.capitalize()
+
         if coluna != len(cl) - 1:
-            anotacao += ","
+            anotacao += gb.separador
 
     doc.close()
     gerar(bloco,anotacao)
@@ -42,6 +47,10 @@ def nova():
 def visualizar():
     notas = bl.visualizar()
     if notas is not None:
-        nt = int(input("Digite o indice de um bloco de notas: "))
+        try:
+            nt = int(input("Digite o indice de um bloco de notas: "))
+        except:
+            print("\nProcesso cancelado por erro na insercao do indice")
+            return
         bl.visualizar(notas[nt -1][:-1])
      

@@ -5,7 +5,7 @@ import functions.globais as gb
 # Parametro: numero -> index da lista do bloco ou das anotacoes / antc -> string da anotacao ou dos nomes dos blocos
 def separar(numero, antc: str):
     ln = str(numero) + ". " if numero != 0 else "   "
-    for i in antc.split(","):
+    for i in antc.split(gb.separador):
         ln += i.strip() + ((gb.largura - len(i.strip())) * " ")
     return ln
 
@@ -38,15 +38,15 @@ def titulo():
     while True:
         print("Para cancelar a criacao do bloco, digite a palavra 'cancelar'")
         nome = str(input("Titulo: "))
-        if "cancelar" in nome.lower():
+        if "cancelar" in nome.lower() and len(nome) < 10:
             if str(input("Tem certeza que deseja cancelar a criacao do bloco? (S/N): ")).lower() == "s":
                 return None
         if not os.path.exists("logs/docs"):
             os.mkdir("logs/docs")
         try:
-            doc = open(gb.caminho + nome, 'x')
+            doc = open(gb.caminho + nome.capitalize(), 'x')
             doc.close()
-            return nome
+            return nome.capitalize()
         except:
             print("Ja existe um bloco com este nome. Tente outro nome.")
 
@@ -76,7 +76,7 @@ def gerar_bloco():
     for cl in range(len(col)):
         doc.write(col[cl])
         if cl < len(col) - 1:
-            doc.write(',')
+            doc.write(gb.separador)
     doc.write("\n")
     doc.close()
     blocos.write(nome + "\n")
