@@ -100,7 +100,7 @@ def deletar(nome: str):
                     if line != nome:
                         newDoc.append(line)
                 file.writelines(newDoc)
-            print("\nBloco de notas apagado com SUCESSO")
+            print(f"\nBloco '{nome[:-1]}' apagado com SUCESSO")
 
         else:
             print("\nO bloco de notas selecionado nao existe")
