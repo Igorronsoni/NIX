@@ -27,7 +27,4 @@ def selec(opcao):
 
 while True:
     menu_main()
-    try:
-        selec(int(input("Opcao: ")))
-    except:
-        print("\nProcesso cancelado por erro na insercao do indice")
+    selec(input("Opcao: ")) or print("\nProcesso cancelado por erro na insercao do indice")
