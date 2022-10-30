@@ -8,7 +8,9 @@ def selec_menu_avancado(op):
     try: 
         op = int(op)
     except:
-        return 0
+        print("\nProcesso cancelado por erro na insercao do indice")
+        return 1
+
     match op:
         case 1:
             blocos = bl.visualizar()
@@ -19,7 +21,6 @@ def selec_menu_avancado(op):
                     bl.deletar_bloco(ut.ajuste_nome(blocos[doc-1]), doc - 1)
             except:
                 print("\nProcesso cancelado por erro na insercao do indice")
-                return 0
             return 1
         case 2:
             bloco = bl.visualizar()
@@ -32,7 +33,7 @@ def selec_menu_avancado(op):
                     an.deletar_anotacao(linha, ut.ajuste_nome(bloco[doc - 1]))
             except:
                 print("\nProcesso cancelado por erro na insercao do indice")
-                return 0
+            return 1
         case _:
             return 0
 
