@@ -13,9 +13,9 @@
     O programa Caderneta tem como proposito facilitar o método como você organiza suas anotações, sejam elas, controle de gastos, organização de atividades, lista de afazeres, projetos pessoais, independente do que for, Caderneta estará de facil acesso para você. O projeto é simples porém prestativo, a falta de muitos recursos estão sendo averiguados. Em breve novas atualizações do software estarão sendo lançadas e também um novo sistema de Caderneta para Mobile e Desktop já estão sendo projetados.  
 </p>
 
-<h3 align="left">Notas de Atualizações</h3>
-- Versão Beta - 0.3.11
-  Nestas atualizações foram implementados os seguintes recursos:
+### Notas de Atualizações
+- ***Versão*** Beta - 0.3.11
+  - Nestas atualizações foram implementados os seguintes recursos:
     - Criar um bloco de notas
     - Criar uma anotação em um bloco de notas
     - Visualizar o conjunto de bloco de notas
@@ -24,7 +24,7 @@
     - Deletar uma anotação
     - Cancelamento de criação de bloco de notas
     - Cancelamento de criação de uma anotação
-  Também foram corrigidos diversos erros presentes no programa como:
+  - Também foram corrigidos diversos erros presentes no programa como:
     - Erro de inserção de nome do bloco de notas
     - Erros de cancelamento de criação de blocos e de anotações
     - Erros de retorno de variáveis
