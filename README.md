@@ -18,4 +18,4 @@
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" title="python" alt="python" width="35" height="35"/>
 </p>
 
-<h6 align="right">Versão 0.0.8</h3>
+<h6 align="right">Versão 0.3.11</h3>
