@@ -1,5 +1,7 @@
 import os
 import functions.globais as gb
+import functions.uteis as ut
+import functions.anotacoes as an
 
 # Formata o bloco para a apresentacao na tela
 # Parametro: numero -> index da lista do bloco ou das anotacoes / antc -> string da anotacao ou dos nomes dos blocos
@@ -84,26 +86,16 @@ def gerar_bloco():
     blocos.close()
 
 # Deleta um bloco de notas
-# Parametro: nome -> nome do bloco em especifico
-def deletar(nome: str):
-    confir = str(input(f"\nTem certeza que deseja deletar o bloco de notas '{nome[:-1]}'? (S/N): "))
-    if confir.lower() == "s":
+# Parametro: nome -> nome do bloco em especifico / linha -> linha em que o bloco vai estar dentro do bloco geral
+def deletar_bloco(nome: str, linha):
+    if os.path.exists(gb.caminho + nome):
+        os.remove(gb.caminho + nome)
+        an.deletar_anotacao(linha, gb.nomeDosBlocos)
+        print(f"\nBloco '{nome}' apagado com SUCESSO")
 
-        if os.path.exists(gb.caminho + nome[:-1]):
-            os.remove(gb.caminho + nome[:-1])
-            doc = open(gb.caminho + gb.nomeDosBlocos, 'r')
-            arqs = doc.readlines()
-            doc.close()
-            with open(gb.caminho + gb.nomeDosBlocos, 'w') as file:
-                newDoc = list()
-                for line in arqs:
-                    if line != nome:
-                        newDoc.append(line)
-                file.writelines(newDoc)
-            print(f"\nBloco '{nome[:-1]}' apagado com SUCESSO")
+    else:
+        print("\nO bloco de notas selecionado nao existe")
+        return 0
 
-        else:
-            print("\nO bloco de notas selecionado nao existe")
-                
     return 1
     

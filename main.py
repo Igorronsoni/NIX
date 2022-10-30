@@ -6,6 +6,10 @@ def menu_main():
     print("\n          --- Menu ---          \n1. Novo bloco\n2. Visualizar blocos\n3. Nova anotacao\n4. Visualizar anotacoes\n5. Opcoes avancadas\n")
 
 def selec(opcao):
+    try: 
+        opcao = int(opcao)
+    except:
+        return 0
     match opcao:
         case 1:
             bl.gerar_bloco()

@@ -1,5 +1,6 @@
 import functions.blocos as bl
 import functions.globais as gb
+import functions.uteis as ut
 
 # Gera uma nova anotacao dentro de um bloco
 # Parametros: bloco -> nome do bloco / anotacao -> string da anotacao
@@ -53,4 +54,14 @@ def visualizar():
             print("\nProcesso cancelado por erro na insercao do indice")
             return
         bl.visualizar(notas[nt -1][:-1])
-     
+
+# Deleta anotacao em especifico
+# Parametros: linha -> numero da linha a ser deletado do bloco / bloco -> bloco em que esta esta anotacao
+def deletar_anotacao(linha, bloco):
+    arq = ut.salvar(bloco)
+    with open(gb.caminho + ut.ajuste_nome(bloco), 'w') as new_bloco:
+        new_arq = list()
+        for ln in range(len(arq)):
+            if ln != linha:
+                new_arq.append(arq[ln])
+        new_bloco.writelines(new_arq)
